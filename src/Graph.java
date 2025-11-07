@@ -9,7 +9,7 @@ public class Graph {
       String[] keys;
       ArrayList<Integer>[] adjList;
 	
-	public void grafoaSortu(AutoreZerrenda lista){
+	public void grafoaSortu(EditoreaBiltegi lista){
 		// Post: pelikulen zerrendatik grafoa sortu
 		//       Nodoak aktore izenak dira
 		
