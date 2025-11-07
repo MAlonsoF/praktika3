@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Graph {
 	
       HashMap<String, Integer> th;
@@ -9,14 +14,14 @@ public class Graph {
 		//       Nodoak aktore izenak dira
 		
 		
-            // 1. pausua:  thù bete
+            // 1. pausua:  th? bete
             // KODEA INPLEMENTATU
 
-            // 2. pausua: keysù bete
+            // 2. pausua: keys? bete
 		keys = new String[th.size()];
 		for (String k: th.keySet()) keys[th.get(k)] = k;
 
- 	    // 3. pausua: adjListù bete
+ 	    // 3. pausua: adjList? bete
             // KODEA INPLEMENTATU           
            
 	}
