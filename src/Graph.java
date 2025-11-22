@@ -35,7 +35,7 @@ public class Graph {
 	   }
 	}
 	
-	public boolean erlazionatuta(String a1, String a2){
+	public boolean erlazionatuta1(String a1, String a2){
 		Queue<Integer> aztertuGabeak = new LinkedList<Integer>();
 		
 		int pos1 = th.get(a1);
@@ -43,8 +43,35 @@ public class Graph {
 		boolean aurkitua = false;
 		boolean[] aztertuak = new boolean[th.size()];
 
-                 // KODEA INPLEMENTATU    
-		
+               // KODEA INPLEMENTATU  
+        // Verificar que ambos autores existen en el grafo
+        if (!th.containsKey(a1) || !th.containsKey(a2)) {
+            return false;
+        }
+        // Si son el mismo autor
+        if (pos1 == pos2) {
+            return true;
+        }
+        
+        // BFS para buscar conexión
+        aztertuGabeak.add(pos1);
+        aztertuak[pos1] = true;
+        
+        while (!aztertuGabeak.isEmpty() && !aurkitua) {
+            int unekoa = aztertuGabeak.poll();
+            
+            // Recorrer todos los vecinos
+            for (int hurrengoa : adjList[unekoa]) {
+                if (!aztertuak[hurrengoa]) {
+                    if (hurrengoa == pos2) {
+                        aurkitua = true;
+                        break;
+                    }
+                    aztertuak[hurrengoa] = true;
+                    aztertuGabeak.add(hurrengoa);
+                }
+            }
+        }
 		return aurkitua;
 
 	}
