@@ -77,7 +77,34 @@ public class Graph {
 	}
 
 	public ArrayList<String> erlazionatuta(String a1, String a2){
-		    // KODEA INPLEMENTATU    
+		    // KODEA INPLEMENTATU
+        ArrayList<String> aurkitua = new ArrayList<>();
+        ArrayList<String> reverse = new ArrayList<>();
+        int pos1 = th.get(a1);
+        int pos2 = th.get(a2);
+        int aurrekoa = pos2;
+        Boolean amaitu = false;
+        aurkitua.add(a1);
+        if (erlazionatuta1(a1,a2)){
+            while (!amaitu){
+                for (int hurrengoa : adjList[aurrekoa]) {
+                    String aux = keys[hurrengoa];
+                    if (erlazionatuta1(a1,aux)) {
+                        reverse.add(keys[hurrengoa]);
+                        aurrekoa = hurrengoa;
+                    }
+                    if (hurrengoa == pos1) {
+                        amaitu = true;
+                        break;
+                    }
+                }
+                // Funciona pero el costo puede ser enorme, no es eficiente en grafos grandes
+                // Ademas, reverse es la lista que los conecta pero esta DEL REVES
+            }
+        }
+        else{
+            // al no estar relacionados no deberia de ejecutarse
+        }
 		
 		return aurkitua;
 
