@@ -16,7 +16,16 @@ public class Graph {
 		
             // 1. pausua:  th? bete
             // KODEA INPLEMENTATU
-
+        th = new HashMap<>();
+        int index = 0;
+        
+        // Recorrer todos los editores y asignarles un índice
+        for (Editorea editorea : lista.getEditoreak()) {
+            if (!th.containsKey(editorea.getId())) {
+                th.put(editorea.getId(), index);
+                index++;
+            }
+        }
             // 2. pausua: keys? bete
 		keys = new String[th.size()];
 		for (String k: th.keySet()) keys[th.get(k)] = k;
