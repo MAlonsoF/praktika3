@@ -32,10 +32,6 @@ public class Graph {
 		
 		
 		
-			// PONER ALGO MAS, SOLO ESTA LO DEL PROFESOR
-		
-		
-		
 	    // 3. pausua: adjList? bete
           // KODEA INPLEMENTATU           
         adjList = new ArrayList[th.size()];
