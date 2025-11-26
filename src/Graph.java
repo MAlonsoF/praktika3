@@ -9,13 +9,13 @@ public class Graph {
       String[] keys;
       ArrayList<Integer>[] adjList;
 	
-	public void grafoaSortu(EditoreaBiltegi lista){
+		public void grafoaSortu(EditoreaBiltegi lista){
 		// Post: pelikulen zerrendatik grafoa sortu
 		//       Nodoak aktore izenak dira
 		
 		
-            // 1. pausua:  th? bete
-            // KODEA INPLEMENTATU
+          // 1. pausua:  th? bete
+          // KODEA INPLEMENTATU
         th = new HashMap<>();
         int index = 0;
         
@@ -26,15 +26,41 @@ public class Graph {
                 index++;
             }
         }
-            // 2. pausua: keys? bete
+          // 2. pausua: keys? bete
 		keys = new String[th.size()];
 		for (String k: th.keySet()) keys[th.get(k)] = k;
-
- 	    // 3. pausua: adjList? bete
-            // KODEA INPLEMENTATU           
-           
+		
+		
+		
+			// PONER ALGO MAS, SOLO ESTA LO DEL PROFESOR
+		
+		
+		
+	    // 3. pausua: adjList? bete
+          // KODEA INPLEMENTATU           
+        adjList = new ArrayList[th.size()];
+        for (int i = 0; i < adjList.length; i++) {
+            adjList[i] = new ArrayList<>();
+        }
+        
+        // Construir las conexiones entre autores que colaboran en las mismas publicaciones
+        for (Editorea editorea1 : lista.getEditoreak()) {
+            int idx1 = th.get(editorea1.getId());
+            
+            // Para cada publicación del editor actual
+            for (Argitalpena argitalpena : editorea1.getArgitalpenakObjektuak()) {
+                // Conectar con todos los coautores de esta publicación
+                for (String egileId : argitalpena.egileak()) {
+                    if (!egileId.equals(editorea1.getId())) { // No conectar consigo mismo
+                        int idx2 = th.get(egileId);
+                        if (!adjList[idx1].contains(idx2)) {
+                            adjList[idx1].add(idx2);
+                        }
+                    }
+                }
+            }
+        }
 	}
-	
 	public void print(){
 	   for (int i = 0; i < adjList.length; i++){
 		System.out.print("Element: " + i + " " + keys[i] + " --> ");
